@@ -1,0 +1,14 @@
+[
+    {
+        "name": "leon",
+        "passwort": "leon123!",
+        "url": "leon@leon.de",
+        "note": "leon123"
+    },
+    {
+        "name": "hannes",
+        "passwort": "hannes123!",
+        "url": "hannes@hannes.de",
+        "note": "hannes"
+    }
+]

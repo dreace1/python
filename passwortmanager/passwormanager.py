@@ -1,11 +1,13 @@
 
 import json
 import manager_ui as ui
+from db_mock import db_mock
 
 class Passwordmanager:
 
     def __init__(self) -> None:
         self.input = 0
+        self.db_mock = db_mock()
 
     
     
@@ -21,24 +23,8 @@ class Passwordmanager:
             case 3:
                 exit()
     
-    def db_mock(self):
-        self.db_mock[
-            {
-            "name": "leon",
-            "passwort": "leon123!",
-            "url": "leon@leon.de",
-            "note": "leon123"
-            },
-            {
-            "name": "hannes",
-            "passwort": "hannes123!",
-            "url": "hannes@hannes.de",
-            "note": "hannes"  
-            }
-        ]
-
     def create_new_db(self):
-        pw_db = json.dumps(self.db_mock(), indent=4)
+        pw_db = json.dumps(self.db_mock.get_db(), indent=4)
     
         with open("pw_mock.json", "w") as outfile:
             outfile.write(pw_db)
