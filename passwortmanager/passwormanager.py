@@ -1,17 +1,13 @@
+
 import json
+import manager_ui as ui
 
 class Passwordmanager:
 
     def __init__(self) -> None:
         self.input = 0
 
-    def show_menu(self):
-        print("===================================================")
-        print("                  Passwortmanager")
-        print("===================================================")
-        print("  1) Erstelle ein neues Passwort in der Datenbank")
-        print("  2) Starte mit vorhandener Datenbank")
-        print("  3) Abbrechen")
+    
     
     def read_input(self):
         return int(input("Was möchtest du machen? "))
@@ -26,7 +22,7 @@ class Passwordmanager:
                 exit()
     
     def db_mock(self):
-        return [
+        self.db_mock[
             {
             "name": "leon",
             "passwort": "leon123!",
@@ -52,7 +48,7 @@ class Passwordmanager:
 
     def start(self):
         while True:
-            self.show_menu()
+            ui.show_menu()
             self.action = self.read_input()
             self.choose_operation()
 
