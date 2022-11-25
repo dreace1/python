@@ -19,5 +19,5 @@ def choose_operation(passwordmanager):
 def create_new_db(passwordmanager):
         pw_db = json.dumps(passwordmanager.db_mock.get_db(), indent=4)
 
-        with open("pw_mock.json", "w") as outfile:
+        with open("passwortmanager/json/" + passwordmanager.get_action(), "w") as outfile:
             outfile.write(pw_db)
