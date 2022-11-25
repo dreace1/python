@@ -9,8 +9,6 @@ class Passwordmanager:
         self.input = 0
         self.db_mock = db_mock()
 
-    
-    
     def read_input(self):
         return int(input("Was möchtest du machen? "))
 
@@ -18,6 +16,7 @@ class Passwordmanager:
         match self.action:
             case 1:
                 self.create_new_db()
+                ui.show_new_db_menu()
             case 2:
                 self.use_existing_db()
             case 3:
