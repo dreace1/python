@@ -1,7 +1,8 @@
 
-import json
+import manager_controller as controller
 import manager_ui as ui
 from db_mock import db_mock
+
 
 class Passwordmanager:
 
@@ -11,17 +12,18 @@ class Passwordmanager:
 
     def read_input(self):
         return int(input("Was möchtest du machen? "))
-    
-    
-            
+         
     def use_existing_db(self):        
-        pass        
+        pass     
+
+    def get_action(self):
+        return self.action   
 
     def start(self):
         while True:
             ui.show_menu()
             self.action = self.read_input()
-            self.choose_operation()
+            controller.choose_operation(self)
 
 passwordmanager = Passwordmanager()
 passwordmanager.start()
