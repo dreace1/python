@@ -12,12 +12,19 @@ class Passwordmanager:
 
     def read_input(self):
         return int(input("Was möchtest du machen? "))
+
+    def read_db_name(self):
+        return str(input("Bitte einen Namen für die Datenbank ein ")) + ".json"
+
          
     def use_existing_db(self):        
         pass     
 
     def get_action(self):
         return self.action   
+
+    def set_action(self, action):
+        self.action = action
 
     def start(self):
         while True:
