@@ -15,10 +15,9 @@ class Passwordmanager:
 
     def read_db_name(self):
         return str(input("Bitte einen Namen für die Datenbank ein ")) + ".json"
-
-         
+     
     def use_existing_db(self):        
-        pass     
+        pass
 
     def get_action(self):
         return self.action   

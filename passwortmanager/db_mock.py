@@ -23,7 +23,11 @@ class db_mock:
         return self.db
 
     def get_db_name(self) -> str:
-        return self.db_name
+        return str(self.db_name)
     
     def set_db_name(self, db_name):
-        self.db_name = db_name
+        self.db_name = str(db_name)
+
+testdb = db_mock()
+testdb.set_db_name("test.json")
+print(testdb.get_db_name())
