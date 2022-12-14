@@ -4,20 +4,19 @@ import manager_ui as ui
 
 
 def choose_operation(passwordmanager):
-        match passwordmanager.get_action():
-            case 1:
-                db_mock = passwordmanager.db_mock
-
-                db_mock.set_db_name(passwordmanager.read_db_name())
-                ui.show_new_db_menu(db_mock.get_db_name())
-                create_new_db(db_mock)
-                passwordmanager.read_input()
-                choose_db_option(passwordmanager)
-            case 2:
-                pass
-                #use_existing_db(Passwordmanager)
-            case 3:
-                exit()
+    match passwordmanager.get_action():
+        case 1:
+            db_mock = passwordmanager.db_mock
+            db_mock.set_db_name(passwordmanager.read_db_name())
+            ui.show_new_db_menu(db_mock.get_db_name())
+            create_new_db(db_mock)
+            passwordmanager.read_input()
+            choose_db_option(passwordmanager)
+        case 2:
+            pass
+            #use_existing_db(Passwordmanager)
+        case 3:
+            exit()
 
 def choose_db_option(passwordmanager):
     match passwordmanager.get_action():
