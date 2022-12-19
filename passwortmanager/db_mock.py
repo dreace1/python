@@ -1,8 +1,9 @@
 class db_mock:
     def __init__(self) -> None:
-        self.create_db_mock()
+        self.db = []
         self.db_name = ""
 
+    #Testfunktion für das erstellen einer gemockten json datei
     def create_db_mock(self):
         self.db =  [
             {

@@ -20,8 +20,9 @@ def show_db_menu(db_name: str):
     print(" 5) Abbrechen")
 
 def show_existing_passwords(db_mock):
-    print("\n=============================================")
-    print("Name        Passwort       URL       Notiz")
-    print("=============================================")
+    print("===================================================")
+    print("Name           Passwort           URL           Notiz")
+    print("===================================================")
     for line in db_mock.get_db():
-        print(list(line.values()))
+        print("     ".join(list(line.values())))
+    #TODO Formatierung des Ausgabe

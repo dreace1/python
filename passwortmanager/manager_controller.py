@@ -85,7 +85,7 @@ def update_password(passwordmanager):
         if line.get("url") == url:
             line["passwort"] = new_password
     
-
+    add_entry_to_db(passwordmanager.db_mock, updated_db)
     print("Das Passwort mit der URL: " + url + "wurde erfolgreich geändert.")
 
 def delete_entry(passwordmanager):
