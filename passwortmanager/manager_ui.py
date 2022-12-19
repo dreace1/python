@@ -18,3 +18,10 @@ def show_new_db_menu(db_name: str):
     print(" 3) Lösche vorhandenes Passwort")
     print(" 4) Passwort aktualisieren")
     print(" 5) Abbrechen")
+
+def show_existing_passwords(db_mock):
+    print("\n=============================================")
+    print("URL          Name        Passwort       Notiz")
+    print("=============================================")
+    for line in db_mock.get_db():
+        print(list(line.values()))

@@ -21,7 +21,7 @@ def choose_operation(passwordmanager):
 def choose_db_option(passwordmanager):
     match passwordmanager.get_action():
         case 1:
-            print(passwordmanager.db_mock)
+            ui.show_existing_passwords(passwordmanager.db_mock)
         case 2:
             n = 2
             d = dict(input("Gebe den Account Namen ein: ").split() for _ in range(n))
