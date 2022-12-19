@@ -78,13 +78,18 @@ def update_password(passwordmanager):
     updated_db = passwordmanager.db_mock.get_db()
     url = str(input("Bitte gebe die URL des zu Ändernden Passwords an: "))
     new_password = str(input("Bitte gebe ein neues Password an: "))
+    is_updated = False
 
     for line in updated_db:
         if line.get("url") == url:
             line["passwort"] = new_password
+            is_updated = True
     
-    add_entry_to_db(passwordmanager.db_mock, updated_db)
-    print("Das Passwort mit der URL: " + url + "wurde erfolgreich geändert.")
+    if is_updated:
+        add_entry_to_db(passwordmanager.db_mock, updated_db)
+        print("Das Passwort mit der URL: " + url + " wurde erfolgreich geändert.")
+    else:
+        print("Die URL: " + url + " konnte nicht gefunden werden.")
 
 def delete_entry(passwordmanager):
     db = passwordmanager.db_mock.get_db()
