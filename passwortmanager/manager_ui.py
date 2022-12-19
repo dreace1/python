@@ -8,7 +8,7 @@ def show_menu():
     print("  2) Starte mit vorhandener Datenbank")
     print("  3) Abbrechen")
 
-def show_new_db_menu(db_name: str):
+def show_db_menu(db_name: str):
 
     print("===================================================")
     print("                  Passwortmanager (" + db_name + ")")

@@ -1,4 +1,4 @@
-
+import json
 import manager_controller as controller
 import manager_ui as ui
 from db_mock import db_mock
@@ -17,7 +17,12 @@ class Passwordmanager:
         return str(input("Bitte einen Namen für die Datenbank ein ")) + ".json"
      
     def use_existing_db(self):        
-        pass
+        self.db_mock.set_db_name(str(input("Bitte gebe den Namen der vorhandenen Datenbank ein: ")))
+        
+        with open("json/" + self.db_mock.get_db_name() + ".json") as outfile:
+            database = json.loads(outfile.read())
+       
+        self.db_mock.set_db(database)
 
     def get_action(self):
         return self.action   

@@ -24,6 +24,9 @@ class db_mock:
 
     def get_db(self):
         return self.db
+    
+    def set_db(self, db):
+        self.db = db
 
     def get_db_name(self) -> str:
         return str(self.db_name)

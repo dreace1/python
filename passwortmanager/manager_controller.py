@@ -8,14 +8,15 @@ def choose_operation(passwordmanager):
         case 1:
             db_mock = passwordmanager.db_mock
             db_mock.set_db_name(passwordmanager.read_db_name())
-            ui.show_new_db_menu(db_mock.get_db_name())
+            ui.show_db_menu(db_mock.get_db_name())
             create_new_db(db_mock)
 
-            passwordmanager.set_action(passwordmanager.read_input())
-            choose_db_option(passwordmanager)
+            read_db_menu_action(passwordmanager)
         case 2:
-            pass
-            #use_existing_db(Passwordmanager)
+            passwordmanager.use_existing_db()
+            ui.show_db_menu(passwordmanager.db_mock.get_db_name())
+
+            read_db_menu_action(passwordmanager)
         case 3:
             exit()
 
@@ -25,9 +26,13 @@ def choose_db_option(passwordmanager):
     match passwordmanager.get_action():
         case 1:
             ui.show_existing_passwords(passwordmanager.db_mock)
+
+            read_db_menu_action(passwordmanager)
         case 2:
             add_new_password(passwordmanager)
             add_pw_to_db(passwordmanager.db_mock, passwordmanager.db_mock.get_db())
+
+            read_db_menu_action(passwordmanager)
         case 3:
             pass
         case 4:
@@ -50,7 +55,6 @@ def add_new_password(passwordmanager):
 
     passwordmanager.db_mock.add_pw_to_db(password_entry)
 
-
 def create_new_db(db_mock):
     pw_db = json.dumps(db_mock.get_db(), indent=4)
         
@@ -62,5 +66,11 @@ def add_pw_to_db(db_mock, password):
 
     with open("json/" + db_mock.get_db_name(), "w") as outfile:
             outfile.write(dict)
+
+def read_db_menu_action(passwordmanager):
+    ui.show_db_menu(passwordmanager.db_mock.get_db_name())
+    passwordmanager.set_action(passwordmanager.read_input())
+    choose_db_option(passwordmanager)
+
 
 
