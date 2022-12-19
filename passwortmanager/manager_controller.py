@@ -8,13 +8,11 @@ def choose_operation(passwordmanager):
         case 1:
             db_mock = passwordmanager.db_mock
             db_mock.set_db_name(passwordmanager.read_db_name())
-            ui.show_db_menu(db_mock.get_db_name())
             create_new_db(db_mock)
 
             read_db_menu_action(passwordmanager)
         case 2:
             passwordmanager.use_existing_db()
-            ui.show_db_menu(passwordmanager.db_mock.get_db_name())
 
             read_db_menu_action(passwordmanager)
         case 3:
