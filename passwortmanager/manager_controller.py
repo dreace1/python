@@ -34,9 +34,9 @@ def choose_db_option(passwordmanager):
 
             read_db_menu_action(passwordmanager)
         case 3:
+            delete_entry(passwordmanager)
+
             read_db_menu_action(passwordmanager)
-
-
         case 4:
             update_password(passwordmanager)
 
@@ -85,9 +85,27 @@ def update_password(passwordmanager):
         if line.get("url") == url:
             line["passwort"] = new_password
     
-    add_entry_to_db(passwordmanager.db_mock, updated_db)
 
     print("Das Passwort mit der URL: " + url + "wurde erfolgreich geändert.")
 
+def delete_entry(passwordmanager):
+    db = passwordmanager.db_mock.get_db()
+    updated_db = passwordmanager.db_mock.get_db().copy()
+    is_deleted = False
+
+    url = str(input("Bitte gebe die URL des zu löschenden Passwords an: "))
+   
+    for line in db:
+        if line.get("url") == url:
+            updated_db.remove(line)
+            is_deleted = True
+    
+    if is_deleted:
+        passwordmanager.db_mock.set_db(updated_db)
+        add_entry_to_db(passwordmanager.db_mock, updated_db)
+        print("Der Eintrag mit der URL: " + url + " wurde erfolgreich gelöscht.")
+    else:
+        print("Die URL: " + url + " wurde nicht gefunden.")
 
 
+    
