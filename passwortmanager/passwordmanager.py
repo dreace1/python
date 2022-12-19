@@ -7,7 +7,7 @@ from db_mock import db_mock
 class Passwordmanager:
 
     def __init__(self) -> None:
-        self.input = 0
+        self.action = 0
         self.db_mock = db_mock()
 
     def read_input(self):

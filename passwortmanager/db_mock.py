@@ -19,6 +19,9 @@ class db_mock:
             }
         ]
 
+    def add_pw_to_db(self, password):
+        self.db.append(password)
+
     def get_db(self):
         return self.db
 
