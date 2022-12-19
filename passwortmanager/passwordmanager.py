@@ -17,9 +17,9 @@ class Passwordmanager:
         return str(input("Bitte einen Namen für die Datenbank ein ")) + ".json"
      
     def use_existing_db(self):        
-        self.db_mock.set_db_name(str(input("Bitte gebe den Namen der vorhandenen Datenbank ein: ")))
+        self.db_mock.set_db_name(str(input("Bitte gebe den Namen der vorhandene Datenbank ein: ")) + ".json")
         
-        with open("json/" + self.db_mock.get_db_name() + ".json") as outfile:
+        with open("json/" + self.db_mock.get_db_name()) as outfile:
             database = json.loads(outfile.read())
        
         self.db_mock.set_db(database)

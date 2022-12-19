@@ -34,6 +34,5 @@ class db_mock:
     def set_db_name(self, db_name):
         self.db_name = str(db_name)
 
-testdb = db_mock()
-testdb.set_db_name("test.json")
-print(testdb.get_db_name())
+    
+
