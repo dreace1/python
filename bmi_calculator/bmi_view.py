@@ -9,7 +9,9 @@ class Bmi_view(customtkinter.CTk):
     def __init__(self) -> None:
         super().__init__()
         self.geometry("350x300")
-        
+        self.create_bmi_view()
+
+    def create_bmi_view(self):
         self.init_grid_laylout()
         self.init_input_fields()
         self.init_labels()
@@ -40,7 +42,7 @@ class Bmi_view(customtkinter.CTk):
 
     def init_bmi_label(self):
         self.bmi_label = customtkinter.CTkLabel(self, fg_color = "#a6d189", text_color = "black", text = "BMI-Wert: 0", 
-                                           font = customtkinter.CTkFont(family = "futura" ,size = 20))
+                                           font = customtkinter.CTkFont(family = "futura", size = 20))
         self.bmi_label.grid(column = 0, row = 3, columnspan = 2, padx = 20, pady = 20)
 
     def calculate_event(self):
