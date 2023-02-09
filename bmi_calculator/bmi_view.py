@@ -41,13 +41,29 @@ class Bmi_view(customtkinter.CTk):
         self.calculate_button.grid(column = 0, row = 2, columnspan = 2, padx = 20, pady = 20)
 
     def init_bmi_label(self):
-        self.bmi_label = customtkinter.CTkLabel(self, fg_color = "#a6d189", text_color = "black", text = "BMI-Wert: 0", 
+        self.bmi_label = customtkinter.CTkLabel(self, text = "BMI-Wert: 0", 
                                            font = customtkinter.CTkFont(family = "futura", size = 20))
         self.bmi_label.grid(column = 0, row = 3, columnspan = 2, padx = 20, pady = 20)
 
     def calculate_event(self):
         bmi = float(self.weight_input_field.get()) / pow(float(self.height_input_field.get()), 2)
         self.bmi_label.configure(text = "BMI-Wert: " + str(round(bmi, 2)))
+        self.set_bmi_coloring(round(bmi, 2))
+
+        
+    def set_bmi_coloring(self, bmi):
+        if bmi <= 17:
+            self.bmi_label.configure(fg_color = "#e78284", text_color = "black")
+        elif bmi <= 18.5 and bmi > 17:
+            self.bmi_label.configure(fg_color = "#e5c890", text_color = "black")
+        elif bmi <= 25 and bmi > 18.5:
+            self.bmi_label.configure(fg_color = "#a6d189", text_color = "black")
+        elif bmi <= 30 and bmi > 25:
+            self.bmi_label.configure(fg_color = "#e5c890", text_color = "black")
+        elif bmi <= 35 and bmi > 30:
+            self.bmi_label.configure(fg_color = "#ef9f76", text_color = "black")
+        elif bmi > 35:
+            self.bmi_label.configure(fg_color = "#e78284", text_color = "black")
 
 view = Bmi_view()
 view.mainloop()
