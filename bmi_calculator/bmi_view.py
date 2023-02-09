@@ -48,7 +48,7 @@ class Bmi_view(customtkinter.CTk):
 
     def init_bmi_label(self):
         self.bmi_label = customtkinter.CTkLabel(self, text = "BMI-Wert: 0", 
-                                           font = customtkinter.CTkFont(family = "futura", size = 20))
+                                                        font = customtkinter.CTkFont(family = "futura", size = 20))
         self.bmi_label.grid(column = 0, row = 3, columnspan = 2, padx = 20, pady = 20)
 
     def calculate_event(self):
@@ -82,5 +82,7 @@ class Bmi_view(customtkinter.CTk):
         bmi_scala.grid(column = 0, row = 4, columnspan = 2) 
 
 
-view = Bmi_view()
-view.mainloop()
+if __name__ == "__main__":
+    view = Bmi_view()
+    view.mainloop()
+
