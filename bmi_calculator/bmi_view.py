@@ -15,7 +15,7 @@ class Bmi_view(customtkinter.CTk):
         self.geometry("350x300")
         self.maxsize(350, 300)
         self.minsize(350,300)
-        self.title("BMI Rechner")
+        self.title("BMI Rechner 🏋️")
 
     def create_bmi_view(self):
         self.init_grid_laylout()
