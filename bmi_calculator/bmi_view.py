@@ -62,20 +62,20 @@ class Bmi_view(customtkinter.CTk):
         if bmi <= 17:
             self.bmi_label.configure(fg_color = "#e78284", text_color = "black")
             bmi_scala.configure(text = "Starkes Untergewicht")
-        elif bmi <= 18.5 and bmi > 17:
+        elif bmi <= 18.5:
             self.bmi_label.configure(fg_color = "#e5c890", text_color = "black")
             bmi_scala.configure(text = "Mäßiges Untergewicht")
-        elif bmi <= 25 and bmi > 18.5:
+        elif bmi <= 25:
             self.bmi_label.configure(fg_color = "#a6d189", text_color = "black")
             #Workaround for deleting the intputs that are nested in the label
             bmi_scala.configure(text = "      Normalgewicht      ")
-        elif bmi <= 30 and bmi > 25:
+        elif bmi <= 30:
             self.bmi_label.configure(fg_color = "#e5c890", text_color = "black")
             bmi_scala.configure(text = "      Übergewicht       ")
-        elif bmi <= 35 and bmi > 30:
+        elif bmi <= 35:
             self.bmi_label.configure(fg_color = "#ef9f76", text_color = "black")
             bmi_scala.configure(text = "Adipositas Grad I")
-        elif bmi > 35:
+        else:
             self.bmi_label.configure(fg_color = "#e78284", text_color = "black")
             bmi_scala.configure(text = "Adipositas Grad II")
 
